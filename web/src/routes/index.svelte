@@ -27,10 +27,10 @@
 
 
   <h2 class="mx-8 mt-12 mb-8 font-bold text-2xl text-gray-200">
-    <a class="underline" href="https://yooloot.xyz">YooLoot</a>
+    YooLoot
   </h2>
 
-  <p class="mx-8"><a class="underline" href="https://yooloot.xyz">YooLoot</a> is the first game using that system. By playing with your Loot, your Loot will potentially get XP.</p>
+  <p class="mx-8">YooLoot (our first upcoming game) will be using that system. By playing with your Loot, your Loot will potentially get XP.</p>
   <p class="mx-8">This XP can in turn be used by other games.</p>
 
 
