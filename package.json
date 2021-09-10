@@ -1,7 +1,7 @@
 {
-  "name": "yooloot",
+  "name": "lootxp",
   "version": "0.0.1",
-  "description": "yooloot",
+  "description": "lootxp",
   "private": true,
   "devDependencies": {
     "change-name": "^0.2.6",
@@ -19,8 +19,8 @@
     "preinstall": "npx only-allow pnpm",
     "---------------------- setup ----------------------": "",
     "prepare": "node ./.setup.js",
-    "setup": "npx change-name yooloot && pnpm install",
-    "set-name": "npx change-name yooloot",
+    "setup": "npx change-name lootxp && pnpm install",
+    "set-name": "npx change-name lootxp",
     "---------------------- common lib ----------------------": "compile the common library",
     "common:dev": "npm --prefix common-lib run dev",
     "common:build": "npm --prefix common-lib run build",

@@ -8,7 +8,7 @@
 
   import {appDescription, url as appUrl} from '../../application.json';
 
-  const title = 'yooloot';
+  const title = 'lootxp';
   const description = appDescription;
   const host = appUrl.endsWith('/') ? appUrl : appUrl + '/';
   const previewImage = host + 'preview.png';

@@ -165,7 +165,7 @@ importers:
       web3w-torus-loader: ^0.3.1
       web3w-walletconnect-loader: ^0.3.1
       wonka: ^4.0.15
-      yooloot-common: workspace:*
+      lootxp-common: workspace:*
     dependencies:
       '@ethersproject/abi': 5.4.1
       '@ethersproject/abstract-provider': 5.4.1
@@ -213,7 +213,7 @@ importers:
       tslib: 2.3.1
       typescript: 4.4.2
       vite: 2.5.3
-      yooloot-common: link:../common-lib
+      lootxp-common: link:../common-lib
 
 packages:
 

@@ -1,1 +1,1 @@
-# yooloot Web App
+# lootxp Web App
