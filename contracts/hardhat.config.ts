@@ -14,29 +14,20 @@ if (process.env.HARDHAT_FORK) {
 
 const config: HardhatUserConfig = {
   solidity: {
-    compilers: [
-      {
-        version: '0.8.7',
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 20000000,
-          },
-        },
+    version: '0.8.7',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 20000000,
       },
-      {
-        version: '0.8.4',
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
-    ],
+    },
   },
   namedAccounts: {
-    deployer: 0,
+    deployer: {
+      default: 0,
+      hardhat: 1,
+    },
+    lootXPOwner: 0, // TODO
   },
   networks: {
     hardhat: {
@@ -99,22 +90,6 @@ const config: HardhatUserConfig = {
   },
   mocha: {
     timeout: 0,
-  },
-  external: {
-    deployments: process.env.HARDHAT_FORK
-      ? {
-          // process.env.HARDHAT_FORK will specify the network that the fork is made from.
-          // these lines allow it to fetch the deployments from the network being forked from both for node and deploy task
-          hardhat: ['deployments/' + process.env.HARDHAT_FORK],
-          localhost: ['deployments/' + process.env.HARDHAT_FORK],
-        }
-      : undefined,
-    contracts: [
-      {
-        artifacts: 'node_modules/loot-xp-registry/export/artifacts',
-        deploy: 'node_modules/loot-xp-registry/export/deploy',
-      },
-    ],
   },
 };
 

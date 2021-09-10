@@ -1,11 +1,11 @@
 {
-  "name": "template-ethereum-contracts",
+  "name": "lootxp-contracts",
   "version": "0.1.0",
-  "description": "Template to develop ethereum smart contracts",
+  "description": "LootXP",
   "engines": {
     "node": ">= 12.18.0"
   },
-  "repository": "github:wighawag/template-ethereum-contracts",
+  "repository": "github:wighawag/lootxp",
   "author": "wighawag",
   "license": "MIT",
   "keywords": [
@@ -15,6 +15,13 @@
     "boilerplate",
     "hardhat",
     "solidity"
+  ],
+  "files": [
+    "src/",
+    "LICENSE",
+    "README.md",
+    "export/artifacts/",
+    "export/deploy/001_deploy_loot_xp.js"
   ],
   "devDependencies": {
     "@ethersproject/hardware-wallets": "^5.0.14",
@@ -58,6 +65,7 @@
     "format:fix": "prettier --write \"**/*.{ts,js,sol}\"",
     "compile": "hardhat compile",
     "void:deploy": "hardhat deploy",
+    "export-artifacts": "tsc -p tsconfig.deploy.json && hardhat export-artifacts export/artifacts --include LootXP",
     "test": "cross-env HARDHAT_DEPLOY_FIXTURE=true HARDHAT_COMPILE=true mocha --bail --recursive test",
     "gas": "cross-env REPORT_GAS=true hardhat test",
     "coverage": "cross-env HARDHAT_DEPLOY_FIXTURE=true hardhat coverage",
