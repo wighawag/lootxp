@@ -78,6 +78,11 @@ async function performAction(rawArgs) {
     await execute(
       `hardhat --network ${fixedArgs[0]} deploy ${extra.join(' ')}`
     );
+  } else if (firstArg === 'etherscan') {
+    const {fixedArgs, extra} = parseArgs(args, 1, {});
+    await execute(
+      `hardhat --network ${fixedArgs[0]} etherscan-verify ${extra.join(' ')}`
+    );
   } else if (firstArg === 'export') {
     const {fixedArgs} = parseArgs(args, 2, {});
     await execute(

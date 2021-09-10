@@ -95,6 +95,16 @@ async function performAction(rawArgs) {
     await execute(
       `${env}npm --prefix contracts run deploy ${network} -- --export ../web/src/lib/contracts.json ${extra.join(' ')}`
     );
+  } else if (firstArg === 'fork:deploy') {
+    const {fixedArgs, extra} = parseArgs(args, 1, {});
+    const network = fixedArgs[0] || 'localhost';
+    const env = getEnv(network);
+    await execute(`${env}npm --prefix contracts run fork:deploy ${network} -- ${extra.join(' ')}`);
+  } else if (firstArg === 'contracts:etherscan') {
+    const {fixedArgs, extra} = parseArgs(args, 1, {});
+    const network = fixedArgs[0] || 'localhost';
+    const env = getEnv(network);
+    await execute(`${env}npm --prefix contracts run etherscan ${network} -- ${extra.join(' ')}`);
   } else if (firstArg === 'contracts:export') {
     const {fixedArgs, extra} = parseArgs(args, 1, {});
     const network = fixedArgs[0];

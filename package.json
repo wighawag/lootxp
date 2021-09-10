@@ -27,6 +27,8 @@
     "---------------------- contracts ----------------------": "compile and deploy smart contracts",
     "contracts:dev": "node ./_scripts.js contracts:dev",
     "contracts:deploy": "node ./_scripts.js contracts:deploy",
+    "fork:deploy": "node ./_scripts.js fork:deploy",
+    "contracts:etherscan": "node ./_scripts.js contracts:etherscan",
     "seed": "node ./_scripts.js contracts:seed",
     "contracts:execute": "node ./_scripts.js contracts:execute",
     "---------------------- web ----------------------": "build and serve the web app",

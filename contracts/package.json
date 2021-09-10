@@ -73,6 +73,7 @@
     "local:dev": "hardhat --network localhost deploy --watch",
     "execute": "node ./_scripts.js run",
     "deploy": "node ./_scripts.js deploy",
+    "etherscan": "node ./_scripts.js etherscan",
     "export": "node ./_scripts.js export",
     "fork:execute": "node ./_scripts.js fork:run",
     "fork:deploy": "node ./_scripts.js fork:deploy",

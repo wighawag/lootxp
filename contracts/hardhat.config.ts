@@ -18,16 +18,19 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 20000000,
+        runs: 1000000,
       },
     },
   },
   namedAccounts: {
     deployer: {
       default: 0,
-      hardhat: 1,
+      mainnet: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
     },
-    lootXPOwner: 0, // TODO
+    lootXPOwner: {
+      default: 1,
+      mainnet: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
+    },
   },
   networks: {
     hardhat: {
