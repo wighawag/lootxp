@@ -1,0 +1,5 @@
+.env*
+!.env*.default
+.newsh.json
+node_modules
+yooloot.code-workspace

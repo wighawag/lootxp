@@ -1,0 +1,21 @@
+{
+  "appName": "YooLoot",
+  "appShortName": "YooLoot",
+  "appDescription": "YooLoot, a fully onchain game for Loot. Grab your best Loot and compete with other Looters.",
+  "appShortDescription": "Grab your best Loot and compete with other Looters.",
+  "developerName": "Ronan Sandford",
+  "developerURL": "https://ronan.eth.link",
+  "url": "https://yooloot.xyz",
+  "background": "#000000",
+  "theme_color": "#000000",
+  "appleStatusBarStyle": "black-translucent",
+  "display": "fullscreen",
+  "icon": "icon.png",
+  "maskable_icons": [
+    {
+      "src": "maskable_icon_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+import {Contract} from 'ethers';
+import {ethers} from 'hardhat';
+
+export async function setupUsers<T extends {[contractName: string]: Contract}>(
+  addresses: string[],
+  contracts: T
+): Promise<({address: string} & T)[]> {
+  const users: ({address: string} & T)[] = [];
+  for (const address of addresses) {
+    users.push(await setupUser(address, contracts));
+  }
+  return users;
+}
+
+export async function setupUser<T extends {[contractName: string]: Contract}>(
+  address: string,
+  contracts: T
+): Promise<{address: string} & T> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user: any = {address};
+  for (const key of Object.keys(contracts)) {
+    user[key] = contracts[key].connect(await ethers.getSigner(address));
+  }
+  return user as {address: string} & T;
+}
+
+export async function waitFor<T>(
+  p: Promise<{wait: () => Promise<T>}>
+): Promise<T> {
+  const tx = await p;
+  return tx.wait();
+}
+
+export async function increaseTime(
+  numSeconds: number,
+  mineBlock?: boolean
+): Promise<void> {
+  // await ethers.provider.send('evm_increaseTime', [numSeconds]);
+  const latestBlockTimestamp = await getLatestBlockTimestamp();
+  await setNextBlockTimestamp(latestBlockTimestamp + numSeconds);
+  if (mineBlock) {
+    await ethers.provider.send('evm_mine', []);
+  }
+}
+
+export async function setNextBlockTimestamp(
+  newTimestamp: number
+): Promise<void> {
+  await ethers.provider.send('evm_setNextBlockTimestamp', [newTimestamp]);
+}
+
+export async function getLatestBlockTimestamp(): Promise<number> {
+  return (await ethers.provider.getBlock('latest')).timestamp;
+}
