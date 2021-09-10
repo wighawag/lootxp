@@ -34,8 +34,8 @@ abstract contract Ownable {
 
 
 contract LootXP is Ownable {
-    event SourceSet(address indexed source, bool added);
-    event SinkSet(address indexed sink, bool added);
+    event SourceSet(address indexed generator, address indexed source, bool added);
+    event SinkSet(address indexed generator, address indexed sink, bool added);
     event GeneratorSet(address indexed generator, bool added);
 
     event XP(uint256 indexed lootId, address indexed sourceOrSink, uint256 previousAmount, uint256 newAmount);
@@ -47,7 +47,7 @@ contract LootXP is Ownable {
     mapping(address => bool) public xpSource;
     mapping(address => bool) public xpSink;
 
-    mapping(address => bool) public xpSourceAndSyncGenerator;
+    mapping(address => bool) public generator;
 
     // solhint-disable-next-line no-empty-blocks
     constructor(address firstOwner) Ownable(firstOwner) {}
@@ -104,20 +104,20 @@ contract LootXP is Ownable {
     }
 
     function setSource(address source, bool add) external {
-        require(xpSourceAndSyncGenerator[msg.sender] || msg.sender == _owner, "NOT_ALLOWED");
+        require(generator[msg.sender] || msg.sender == _owner, "NOT_ALLOWED");
         xpSource[source] = add;
-        emit SourceSet(source, add);
+        emit SourceSet(msg.sender, source, add);
     }
 
     function setSink(address sink, bool add) external {
-        require(xpSourceAndSyncGenerator[msg.sender] || msg.sender == _owner, "NOT_ALLOWED");
+        require(generator[msg.sender] || msg.sender == _owner, "NOT_ALLOWED");
         xpSink[sink] = add;
-        emit SinkSet(sink, add);
+        emit SinkSet(msg.sender, sink, add);
     }
 
-    function setGenerator(address generator, bool add) external {
+    function setGenerator(address generatorToSet, bool add) external {
         require(msg.sender == _owner, "NOT_ALLOWED");
-        xpSourceAndSyncGenerator[generator] = add;
-        emit GeneratorSet(generator, add);
+        generator[generatorToSet] = add;
+        emit GeneratorSet(generatorToSet, add);
     }
 }
