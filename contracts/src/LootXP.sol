@@ -42,6 +42,7 @@ contract LootXP is Ownable {
 
     mapping(uint256 => uint256) public xp;
     mapping(address => uint256) public xpGenerated;
+    mapping(address => uint256) public xpDestroyed;
 
     mapping(address => bool) public xpSource;
     mapping(address => bool) public xpSink;
@@ -88,6 +89,15 @@ contract LootXP is Ownable {
             }
             xp[lootId] = newXP;
             emit XP(lootId, msg.sender, oldXP, newXP);
+            amount = oldXP - newXP;
+
+            oldXP = xpDestroyed[msg.sender];
+            unchecked {newXP = oldXP + amount;}
+            if (newXP < oldXP) {
+                newXP = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
+            }
+            xpDestroyed[msg.sender] = newXP;
+
             return true;
         }
         return false;
