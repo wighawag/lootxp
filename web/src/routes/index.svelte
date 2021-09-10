@@ -22,7 +22,7 @@
   </div>
 
   <p class="mx-8 mb-3">XP (for Adventurers) is a XP system built for <a href="https://lootproject.com">Loot</a></p>
-  <p class="mx-8">Each Loot has now an associated XP score. See <a class="underline" href={`https://etherscan.io/address/${contractsInfo.contracts.LootXPRegistry.address}`}>contract</a></p>
+  <p class="mx-8">Each Loot has now an associated XP score. See <a class="underline" href={`https://etherscan.io/address/${contractsInfo.contracts.LootXPRegistry?.address}`}>contract</a></p>
   <p class="mx-8">Xp is given through participation in on-chain game with sound game mechanics,</p>
 
 
