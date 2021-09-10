@@ -147,6 +147,7 @@ importers:
       hash.js: ^1.1.7
       ipfs-deploy: ^11.0.1
       ipfs-gateway-emulator: ^4.2.1-ipfs.1
+      lootxp-common: workspace:*
       named-logs: ^0.1.0
       postcss: ^8.3.6
       postcss-load-config: ^3.1.0
@@ -165,7 +166,6 @@ importers:
       web3w-torus-loader: ^0.3.1
       web3w-walletconnect-loader: ^0.3.1
       wonka: ^4.0.15
-      lootxp-common: workspace:*
     dependencies:
       '@ethersproject/abi': 5.4.1
       '@ethersproject/abstract-provider': 5.4.1
@@ -201,6 +201,7 @@ importers:
       hash.js: 1.1.7
       ipfs-deploy: 11.0.1
       ipfs-gateway-emulator: 4.2.1-ipfs.1
+      lootxp-common: link:../common-lib
       postcss: 8.3.6
       postcss-load-config: 3.1.0
       prepare-for-web: 0.1.6
@@ -213,7 +214,6 @@ importers:
       tslib: 2.3.1
       typescript: 4.4.2
       vite: 2.5.3
-      lootxp-common: link:../common-lib
 
 packages:
 
