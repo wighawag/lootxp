@@ -25,7 +25,7 @@ const setup = deployments.createFixture(async () => {
   };
 });
 
-describe('YooLoot', function () {
+describe('LootXP', function () {
   it('cannot add xp without approval', async function () {
     const {users, LootXP} = await setup();
     const tokenId = 1;
