@@ -26,10 +26,14 @@ const config: HardhatUserConfig = {
     deployer: {
       default: 0,
       mainnet: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
+      arbitrum: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
+      matic: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
     },
     lootXPOwner: {
       default: 1,
       mainnet: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
+      arbitrum: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
+      matic: '0xdcA9d1FA839bB9Fe65DDC4de5161BCA43751D4B4',
     },
   },
   networks: {
@@ -63,6 +67,18 @@ const config: HardhatUserConfig = {
     mainnet: {
       url: node_url('mainnet'),
       accounts: accounts('mainnet'),
+    },
+    arbitrum_testnet: {
+      url: node_url('arbitrum_testnet'),
+      accounts: accounts('arbitrum_testnet'),
+    },
+    arbitrum: {
+      url: node_url('arbitrum'),
+      accounts: accounts('arbitrum'),
+    },
+    matic: {
+      url: node_url('matic'),
+      accounts: accounts('matic'),
     },
     rinkeby: {
       url: node_url('rinkeby'),
